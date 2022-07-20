@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->string('url');
+            $table->enum('type', ['storage', 'conversion', 'storage_and_conversion']);
+            $table->enum('status', ['active', 'inactive']);
+
             $table->timestamps();
         });
     }
